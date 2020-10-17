@@ -1,0 +1,61 @@
+destinationx=12;%destination coord x
+destinationy=10;%destination coord y
+
+sourcex=5;%source coord x
+sourcey=6;%source coord y
+
+previousx=0;%previous coord x
+previousy=0;%previous coord y
+radius =0.5;
+
+time=0.01;%sample time
+i=1;%iteration
+x=[];%for x coord
+y=[];%for y coord
+x(i)=sourcex;%source coordx stored in x
+y(i)=sourcey;%source coordy stored in y
+
+while(i<30)
+    if(((sourcex-destinationx)^2+(sourcey-destinationy)^2-(2)^2)<=0)%equation of circle
+    break
+    end
+    
+     i=i+1;
+        
+    delx=destinationx-sourcex;
+
+   dely=destinationy-sourcey;
+    slope=(dely)/(delx);
+    %calculation for theta or w
+     nexttheta = atan(slope);
+     nexttheta=nexttheta*(180/pi);
+
+     presenttheta=atan((sourcey-previousy)/(sourcex-previousx));
+     presenttheta=presenttheta*(180/pi);
+
+     w=(nexttheta-presenttheta)/time;
+    %%%%%%%%%%% 
+     %calculation of average v
+
+        v=sqrt((dely)^2 +(delx)^2)/time;
+        s="hello";
+        disp(s);
+        disp(v);
+        
+        
+    %%%%%%%%%%%%%%%%%%%%%
+     x(i)=abs(v*cos(w))*time;%differential drive kinematics
+     y(i)=abs(v*sin(w))*time;
+        
+previousx=sourcex;
+previousy=sourcey;
+sourcex=x(i);
+sourcey=y(i);
+disp(sourcex);
+disp(sourcey);
+%y(i)=sqrt(temp1^2+temp2^2);
+end
+plot(x,y,'--mo');
+disp(i);
+
+
