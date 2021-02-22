@@ -1,0 +1,77 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   8 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_c3_waypointFollower"\
+      Description  "StateIsActive"\
+      SFName       "is_active_c3_waypointFollower"\
+      Path         "is_active_c3_waypointFollower"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_c3_waypointFollower"\
+      Description  "StateActiveChild"\
+      SFName       "is_c3_waypointFollower"\
+      Path         "is_c3_waypointFollower"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "angle"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "angle"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "range"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "range"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "idx"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "idx"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "numPts"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "numPts"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "goalPoint"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "goalPoint"\
+      SrcLocation  ""\
+      Dimensions   [1,2]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
