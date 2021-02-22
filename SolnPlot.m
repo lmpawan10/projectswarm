@@ -17,6 +17,7 @@ function SolnPlot(sol,model)
    
 theta = linspace(0,2*pi);
     for k=1:numel(xobs)
+        robs(k) = robs(k) - 0.07;
         fill(xobs(k)+robs(k)*cos(theta),yobs(k)+robs(k)*sin(theta),'b');
          
         hold on;
