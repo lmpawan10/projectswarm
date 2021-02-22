@@ -20,6 +20,7 @@ function model=CreateModel()
     xt=10.23;
     yt=10.2;
     
+
     xtri=[7 5 6];
     ytri=[0 0 2];
     centri = [sum(xtri)/3, sum(ytri)/3]; % Finding the centroid of triangle
@@ -29,6 +30,7 @@ function model=CreateModel()
     yobs=[5.5 3.0 1.5 0.6 10 centri(2)]; %Center of circles (X-coordinate)
     xobs=[7 4.0 1.2 3.5 7 centri(1)]; %Center of circles (Y-coordinate)
     robs=[3.0 1.0 1.1 0.5 1 rtri]; %Radius of circles (lengths)
+
     
     n=3;    %Number of handle points
     
