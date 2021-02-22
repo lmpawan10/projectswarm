@@ -19,11 +19,7 @@ yt=model.yt;
 xobs=model.xobs;
 yobs=model.yobs;
 robs=model.robs;
-xtri=model.xtri;
-ytri=model.ytri;
 
-tarea = model.tarea;
-parea = model.parea;
 
 XS=[xs x xt];
 YS=[ys y yt];
@@ -50,6 +46,7 @@ for s=1:noc
     v=max(1-d/robs(s),0.01);
     Violation=Violation+mean(v);
 end
+%{
 tarea = (xtri(1) * (ytri(2) - ytri(3)) + xtri(2) * (ytri(3) - ytri(1)) +  xtri(3) * (ytri(1) - ytri(2)))/2;
 %{
     for a = 1:3
@@ -60,7 +57,7 @@ tarea = (xtri(1) * (ytri(2) - ytri(3)) + xtri(2) * (ytri(3) - ytri(1)) +  xtri(3
         end
     parea = parea + (xtri(a) * (ytri(aid) - yy) + xtri(aid) * (yy - ytri(a)) + xx * (ytri(a) - ytri(aid)))/2;
     end
-%}
+
 parea1 = (xx * (ytri(2) - ytri(3)) + xtri(2) * (ytri(3) - yy) + xtri(3) * (yy - ytri(2)))/2;
 parea2 = (xtri(1) * (yy - ytri(3)) + xx * (ytri(3) - ytri(1)) + xtri(3) * (ytri(1) - yy))/2;
 parea3 = (xtri(1) * (ytri(2) - yy) + xtri(2) * (yy - ytri(1)) + xx * (ytri(1) - ytri(2)))/2;
@@ -71,6 +68,8 @@ v1 = abs(v1);
 mean(v1);
 %mean(v);
 Violation = Violation + mean(v1);
+
+%}
 
 sol.TS=TS;
 sol.XS=XS;
