@@ -16,10 +16,12 @@ function SolnPlot(sol,model)
     yy=sol.yy;
    
 theta = linspace(0,2*pi);
-    for k=1:numel(xobs)
+k = 1;
+    %for k=1:numel(xobs)
+    while k < numel(xobs - 1)
         robs(k) = robs(k) - 0.07;
         fill(xobs(k)+robs(k)*cos(theta),yobs(k)+robs(k)*sin(theta),'b');
-         
+        k = k + 1;
         hold on;
     end
     fill(xtri,ytri,'b');
